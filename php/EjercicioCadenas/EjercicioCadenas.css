@@ -1,0 +1,75 @@
+
+ body{
+      display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.cuerpo{
+    border: 2px solid black;
+}
+.formulario{
+    padding: 0 auto;
+    border: 1px solid black;
+    padding: 10px;
+    width: 35vw;
+    margin-left: 6vw;
+}
+.cadena{
+    text-align: center;
+    font-size: 2vw;
+}
+.formu{
+    position: relative;
+    
+}
+.boton{
+    margin-left: 20.2vw;
+}
+.cad{
+    margin-left:21vw;
+}
+.result{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    width:73%;
+    margin-left: 6vw;
+}
+.li1{
+    text-decoration:none;
+      color:#222;
+      padding:20px;
+      background:#efefef;
+      text-transform:uppercase;
+      text-align:center;
+      font-family:'Oswald';
+      flex-grow:1;
+      list-style: none;
+      border:1px solid black;
+      margin:5px;
+      margin-left:0;
+      width:40%;
+      display: inline;
+}
+.li2{
+    text-decoration:none;
+      color:#222;
+      padding:10px;
+      background:#efefef;
+      text-transform:uppercase;
+      text-align:center;
+      font-family:'Oswald';
+      margin:10px;
+      flex-grow:1;
+      list-style: none;
+      width: 100%;
+}
+.lista{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    width: 100%;
+    border:1px solid black;
+}
