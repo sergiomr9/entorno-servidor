@@ -4,7 +4,7 @@
 use Users\User;
 
     spl_autoload_register(function ($class) {//Autoload
-        $classPath = "../";
+        $classPath = "./";
         $file = str_replace('\\', '/', $class);
         require("$classPath${file}.php");
     });   

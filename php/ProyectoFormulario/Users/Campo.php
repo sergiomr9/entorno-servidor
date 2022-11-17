@@ -21,10 +21,10 @@
             if ($this->validarCampos()) {
                 $this->setValue($_POST[$this->name]);
             }
-            return <<<EOD
+            return '
             <h3 class="tit">Nombre <span class="requerido">*</span></h3>
-            <input type="text" name="$this->name" id="nombre" placeholder="$this->placeholder" value="$this->value" pattern="$this->regex">
-            EOD;
+            <input type="text" name="'.$this->getName().'" id="nombre" placeholder="'.$this->getPlaceholder().'" value="'.$this->getValue().'" pattern="'.$this->getRegex().'">
+            ';
         }
         public function validarCampos():bool {
             return $this->validar($this->getName())&&preg_match($this->getRegex(),$_POST[$this->name]);
@@ -36,12 +36,12 @@
             return isset($_POST[$var]);
         }
         function mistake($var){
-            if (isset($errores["$var"])) {
-                echo '<div class="error">';
-                echo '<p>'.$errores["var"].'</p>';
-                echo '</div>';
-            }
+        if (isset($errores["$var"])) {
+            echo '<div class="error">';
+            echo '<p>'.$errores["var"].'</p>';
+            echo '</div>';
         }
+    }
         /**
          * Get the value of name
          */ 

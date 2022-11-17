@@ -12,15 +12,15 @@
         //CONSTRUCTOR
         public function __construct()
         {
-            $this->campos ["nombre"] = new Campo('nombre',"","","INTRODUCE TU NOMBRE");
-            $this->campos ["apellidos"] = new Campo('apellidos',"","","INTRODUCE TUS APELLIDOS");
+            $this->campos ["nombre"] = new Campo('nombre',"",GestorUsuarios::REGEXNOMBRE,"INTRODUCE TU NOMBRE");
+            $this->campos ["apellidos"] = new Campo('apellidos',"",GestorUsuarios::REGEXAPELLIDO,"INTRODUCE TUS APELLIDOS");
             $this->campos ["sexo"] = new CampoRadio("sexo","","","");
             //$this->campos ["fecha"] = new CampoFecha('fecha');
-            $this->campos ["calle"] = new Campo("calle","","","CALLE");
+            $this->campos ["calle"] = new Campo("calle","",GestorUsuarios::REGEXAPELLIDO,"CALLE");
             $this->campos ["piso"] = new Campo("piso","",GestorUsuarios::REGEXPISO,"PISO");           
             $this->campos ["cp"] = new Campo('cp',"",GestorUsuarios::REGEXCP,"CODIGO POSTAL");       
-            $this->campos ["ciudad"] = new Campo('ciudad',"","","CIUDAD");         
-            $this->campos ["pais"] = new campo("pais","","","PAIS");          
+            $this->campos ["ciudad"] = new Campo('ciudad',"",GestorUsuarios::REGEXAPELLIDO,"CIUDAD");         
+            $this->campos ["pais"] = new campo("pais","",GestorUsuarios::REGEXAPELLIDO,"PAIS");          
             $this->campos ["email"] = new Campo('email',"",GestorUsuarios::REGEXMAIL,"INTRODUCE TU EMAIL");          
             $this->campos ["user"] = new Campo('user',"","","INTRODUCE TU USUARIO");         
             $this->campos ["pass"] = new CampoContraseña("pass","",GestorUsuarios::REGEXPASS,"INTRODUCE TU CONTRASEÑA" );
@@ -78,24 +78,24 @@
                         <hr class="tit">
                         <form action="" method="post">
                             <div class="humano">';
-                                $this->campos["nombre"]->printCampos();
+                                echo $this->campos["nombre"]->printCampos();
                                
-                                $this->campos["apellidos"]->printCampos();
+                               echo $this->campos["apellidos"]->printCampos();
                      echo  '</div>';
-                                $this->sexo->printSex();
-                                $this->fecha->printFecha();
+                                //$this->sexo->printSex();
+                                //$this->fecha->printFecha();
                     echo   '<div class="direccion">';
-                                $this->campos["calle"]->printCampos();
-                                $this->campos["piso"]->printCampos();
-                                $this->campos["cp"]->printCampos();
-                                $this->campos["ciudad"]->printCampos();
-                                $this->campos["pais"]->printCampos();
+                                echo $this->campos["calle"]->printCampos();
+                                echo $this->campos["piso"]->printCampos();
+                                echo $this->campos["cp"]->printCampos();
+                                echo $this->campos["ciudad"]->printCampos();
+                                echo $this->campos["pais"]->printCampos();
                     echo    '</div>';
-                                $this->campos["email"]->printCampos();
+                               echo $this->campos["email"]->printCampos();
                     echo    '<div class="userpass">';
-                                $this->campos["user"]->printCampos();
-                                $this->campos["pass"]->printCampos();
-                                $this->campos["repass"]->printCampos();
+                                echo $this->campos["user"]->printCampos();
+                                echo $this->campos["pass"]->printCampos();
+                                echo $this->campos["repass"]->printCampos();
                     echo    '</div>';
                     echo    
                             '<input type="submit" value="Registrarse" class="enviar" name="enviar">

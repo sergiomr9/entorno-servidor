@@ -8,7 +8,8 @@ class GestorUsuarios{
     public const REGEXPASS ="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}";
     public const REGEXCP = "^(?:0[1-9]|[1-4][0-9]|5[0-2])[0-9]{3}$";
     public const REGEXPISO = "^(:?[1-25][a-zA-Z-1]";
-    
+    public const REGEXNOMBRE = "(?=.{3,25}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/";
+    public const REGEXAPELLIDO = "(?=.{3,36}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$";
     public static function singleton() {
         if(!isset(self::$instance)) {
             self::$instance = new \Users\GestorUsuarios();
