@@ -82,8 +82,8 @@
                                
                                echo $this->campos["apellidos"]->printCampos();
                      echo  '</div>';
-                                //$this->sexo->printSex();
-                                //$this->fecha->printFecha();
+                                echo $this->sexo->printSex();
+                                echo $this->fecha->printFecha();
                     echo   '<div class="direccion">';
                                 echo $this->campos["calle"]->printCampos();
                                 echo $this->campos["piso"]->printCampos();
@@ -98,7 +98,16 @@
                                 echo $this->campos["repass"]->printCampos();
                     echo    '</div>';
                     echo    
-                            '<input type="submit" value="Registrarse" class="enviar" name="enviar">
+                            '<h3 class="tit">Politicas legales <span class="requerido">*</span></h3>
+                            <input type="checkbox" name="check1" id="check1">
+                            <label for="check1" class="recmail">Por la presente declaro estar de acuerdo con las Condiciones legales. Declaro haber leído las Condiciones de Revocación.</label><br>
+                            
+                            <input type="checkbox" name="check2" id="check2">
+                            <label for="check2" class="recmail">Declaro haber leido la Política de privacidad y estoy de acuerdo con el almacenamiento de mis datos. Se que puedo revocar mi consentimiento en cualquier momento.</label><br>
+                            
+                            <input type="checkbox" name="check3" id="check3">
+                            <label for="check3" class="recmail">Declaro estar de acuerdo y solicito expresamente que comience la provisión de los servicios solicitados por mí antes de que expire el período de revocación. Soy consciente de que perderé mi derecho de revocación en caso de un cumplimiento completo del contrato por ustedes.</label><br>
+                            <input type="submit" value="Registrarse" class="enviar" name="enviar">
                     </form>
                     </div>
                 </body>
