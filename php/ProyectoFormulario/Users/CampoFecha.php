@@ -13,12 +13,12 @@
                 return false;
             }
         }
-        public function printFecha()
+        public function printCampos()
         {
-            $date = <<<EOD
-            <h3 class="tit">Fecha de nacimiento <span class="requerido">*</span></h3>
+            return '
+            
             <input type="date" name="fecha" id="fecha" style="width:90%;padding:5px">
-            EOD;
+            ';
             /*if (validarCampos()) {
                 parent::mistake($this->name);
             }*/

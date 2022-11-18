@@ -15,7 +15,7 @@
             $this->campos ["nombre"] = new Campo('nombre',"",GestorUsuarios::REGEXNOMBRE,"INTRODUCE TU NOMBRE");
             $this->campos ["apellidos"] = new Campo('apellidos',"",GestorUsuarios::REGEXAPELLIDO,"INTRODUCE TUS APELLIDOS");
             $this->campos ["sexo"] = new CampoRadio("sexo","","","");
-            //$this->campos ["fecha"] = new CampoFecha('fecha');
+            $this->campos ["fecha"] = new CampoFecha('fecha',"","","");
             $this->campos ["calle"] = new Campo("calle","",GestorUsuarios::REGEXAPELLIDO,"CALLE");
             $this->campos ["piso"] = new Campo("piso","",GestorUsuarios::REGEXPISO,"PISO");           
             $this->campos ["cp"] = new Campo('cp',"",GestorUsuarios::REGEXCP,"CODIGO POSTAL");       
@@ -77,22 +77,27 @@
                         </div>
                         <hr class="tit">
                         <form action="" method="post">
-                            <div class="humano">';
+                            <div class="humano">
+                            <h3 class="tit">Nombre <span class="requerido">*</span></h3>';
+                                
                                 echo $this->campos["nombre"]->printCampos();
                                
                                echo $this->campos["apellidos"]->printCampos();
                      echo  '</div>';
-                                echo $this->sexo->printSex();
-                                echo $this->fecha->printFecha();
+                                echo $this->campos["sexo"]->printCampos();
+                    echo '<h3 class="tit">Fecha de nacimiento <span class="requerido">*</span></h3>';
+                                echo $this->campos["fecha"]->printCampos();
                     echo   '<div class="direccion">';
                                 echo $this->campos["calle"]->printCampos();
                                 echo $this->campos["piso"]->printCampos();
                                 echo $this->campos["cp"]->printCampos();
                                 echo $this->campos["ciudad"]->printCampos();
                                 echo $this->campos["pais"]->printCampos();
-                    echo    '</div>';
+                    echo    '</div>
+                            <h3 class="tit">Direccion mail <span class="requerido">*</span></h3>';
                                echo $this->campos["email"]->printCampos();
-                    echo    '<div class="userpass">';
+                    echo    '<p class="recmail">Les recomendamos no utilizar los siguientes proveedores de correos: T-Online, Hotmail, live, Msn y Outlook dado que hay problemas a la hora de recibir nuestros emails en estos correos.</p>
+                            <div class="userpass">';
                                 echo $this->campos["user"]->printCampos();
                                 echo $this->campos["pass"]->printCampos();
                                 echo $this->campos["repass"]->printCampos();

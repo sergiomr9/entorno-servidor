@@ -22,7 +22,6 @@
                 $this->setValue($_POST[$this->name]);
             }
             return '
-            <h3 class="tit">Nombre <span class="requerido">*</span></h3>
             <input type="text" name="'.$this->getName().'" id="nombre" placeholder="'.$this->getPlaceholder().'" value="'.$this->getValue().'" pattern="'.$this->getRegex().'">
             ';
         }

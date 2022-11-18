@@ -14,7 +14,7 @@
             return " Introduce una contraseña";
         }
 
-        public function printPassword()
+        public function printCampos()
         {
             if ($this->validarCampos()) {
                 $this->setValue($_POST[$this->name]);
