@@ -13,8 +13,8 @@ try {
       foreach ($fila as $clave => $valor){
         echo $clave . " " . $valor . "\n";
       }
-      echo "--------------\n"
-    }
+      echo "--------------\n";
+    } 
 
     // Ya se ha terminado; se cierra
     $resultado = null;
