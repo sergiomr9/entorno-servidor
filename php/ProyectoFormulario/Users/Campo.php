@@ -7,8 +7,8 @@
         private $value;
         private $regex;
         private $placeholder;
-        private static $errores = [];
-        public function __construct($name,$value,$regex,$placeholder)
+        private  $errores = [];
+        public function __construct($name,$value,$regex,$placeholder,)
         {
             $this->name = $name;
             $this->value = $value;
@@ -20,27 +20,35 @@
         {
             if ($this->validarCampos()) {
                 $this->setValue($_POST[$this->name]);
-            }
-            return '
+                return '
             <input type="text" name="'.$this->getName().'" id="nombre" placeholder="'.$this->getPlaceholder().'" value="'.$this->getValue().'" pattern="'.$this->getRegex().'">
             ';
+            
+            }else{
+                return '<input type="text" name="'.$this->getName().'" id="nombre" placeholder="'.$this->getPlaceholder().'" value="'.$this->getValue().'" pattern="'.$this->getRegex().'">
+                 <br><div class="error">"'.$this->errores[$this->name].'"</div>
+                ';
+            }
+            
+            
+            
         }
         public function validarCampos():bool {
-            return $this->validar($this->getName())&&preg_match($this->getRegex(),$_POST[$this->name]);
-            //parent::$errores[$this->nombre] = $this->nombre . "No cumple con el patrón del campo";
+            if (empty($_POST[$this->name])) {
+                $this->errores[$this->name] =  "El campo no puede estar vacio";
+                return false;
+            } else {
+               return $this->validar($this->name)&&preg_match($this->getRegex(),$_POST[$this->name]);
+            }
+            
         }
 
         public function validar($var): bool
         {
             return isset($_POST[$var]);
-        }
-        function mistake($var){
-        if (isset($errores["$var"])) {
-            echo '<div class="error">';
-            echo '<p>'.$errores["var"].'</p>';
-            echo '</div>';
-        }
-    }
+
+        }   
+         
         /**
          * Get the value of name
          */ 
@@ -120,5 +128,20 @@
 
                 return $this;
         }
+
+        /**
+         * Get the value of errores
+         */ 
+        public function getErrores()
+        {
+                return $this->errores;
+        }
+
+        /**
+         * Set the value of errores
+         *
+         * @return  self
+         */ 
+       
     }
 ?>

@@ -10,10 +10,12 @@ use Users\User;
     });   
     $config = Users\GestorUsuarios::singleton();
     $form = new User($_POST);
-    //$form->validarCampos();
     if ($form->isValid()) {
         $form->guardarUsuario();
-    }
+    }  
+        
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">

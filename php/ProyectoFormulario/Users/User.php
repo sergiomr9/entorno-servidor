@@ -6,25 +6,26 @@
         //ATRIBUTOS
 
 
-        private static $errores = [];
+        
         private array $campos;
 
         //CONSTRUCTOR
         public function __construct()
         {
             $this->campos ["nombre"] = new Campo('nombre',"",GestorUsuarios::REGEXNOMBRE,"INTRODUCE TU NOMBRE");
-            $this->campos ["apellidos"] = new Campo('apellidos',"",GestorUsuarios::REGEXAPELLIDO,"INTRODUCE TUS APELLIDOS");
+            $this->campos ["apellidos"] = new Campo('apellidos',"",GestorUsuarios::REGEXNOMBRE,"INTRODUCE TUS APELLIDOS");
             $this->campos ["sexo"] = new CampoRadio("sexo","","","");
             $this->campos ["fecha"] = new CampoFecha('fecha',"","","");
-            $this->campos ["calle"] = new Campo("calle","",GestorUsuarios::REGEXAPELLIDO,"CALLE");
-            $this->campos ["piso"] = new Campo("piso","",GestorUsuarios::REGEXPISO,"PISO");           
-            $this->campos ["cp"] = new Campo('cp',"",GestorUsuarios::REGEXCP,"CODIGO POSTAL");       
-            $this->campos ["ciudad"] = new Campo('ciudad',"",GestorUsuarios::REGEXAPELLIDO,"CIUDAD");         
-            $this->campos ["pais"] = new campo("pais","",GestorUsuarios::REGEXAPELLIDO,"PAIS");          
+            $this->campos ["calle"] = new Campo("calle","",GestorUsuarios::REGEXNOMBRE,"CALLE");
+            $this->campos ["piso"] = new Campo("piso","",GestorUsuarios::REGEXNOMBRE,"PISO");           
+            $this->campos ["cp"] = new Campo('cp',"",GestorUsuarios::REGEXNOMBRE,"CODIGO POSTAL");       
+            $this->campos ["ciudad"] = new Campo('ciudad',"",GestorUsuarios::REGEXNOMBRE,"CIUDAD");         
+            $this->campos ["pais"] = new campo("pais","",GestorUsuarios::REGEXNOMBRE,"PAIS");          
             $this->campos ["email"] = new Campo('email',"",GestorUsuarios::REGEXMAIL,"INTRODUCE TU EMAIL");          
-            $this->campos ["user"] = new Campo('user',"","","INTRODUCE TU USUARIO");         
-            $this->campos ["pass"] = new CampoContraseña("pass","",GestorUsuarios::REGEXPASS,"INTRODUCE TU CONTRASEÑA" );
-            $this->campos ["repass"] = new CampoContraseña("pass","",GestorUsuarios::REGEXPASS,"LAS CONTRASEÑAS TIENEN QUE COINCIDIR" );
+            $this->campos ["user"] = new Campo('user',"",GestorUsuarios::REGEXNOMBRE,"INTRODUCE TU USUARIO");         
+            $this->campos ["pass"] = new CampoContraseña("pass","",GestorUsuarios::REGEXPASS,"INTRODUCE TU CONTRASEÑA");
+            $this->campos ["repass"] = new CampoContraseña("pass","",GestorUsuarios::REGEXPASS,"LAS CONTRASEÑAS TIENEN QUE COINCIDIR");
+            
 
         }
         public function getCampos()
@@ -32,11 +33,17 @@
             return $this->campos;
         }
         //METODOS
-
-    
+       
+      
         public function isValid() {
-            //return count(Input::getErrores()) == 0;
+            return count($this->errores) == 0;
+            /*if (count($this->errores)==0) {
+                return true;
+            }else{
+                return false;
+            }*/
         }
+        
         public function guardarUsuario()
         {
             file_put_contents(
@@ -54,10 +61,14 @@
                 $this->campos["user"]->getNombre().",".
                 $this->campos["pass"]->getNombre().","."\n",
                 FILE_APPEND
+               
             );
+            header("");
+            die();
         }
        
         public function print()
+        
         {
             
               echo'  <!DOCTYPE html>
@@ -81,7 +92,7 @@
                             <h3 class="tit">Nombre <span class="requerido">*</span></h3>';
                                 
                                 echo $this->campos["nombre"]->printCampos();
-                               
+                                                    
                                echo $this->campos["apellidos"]->printCampos();
                      echo  '</div>';
                                 echo $this->campos["sexo"]->printCampos();
@@ -118,6 +129,26 @@
                 </body>
                 </html>';
             
+        }
+
+        /**
+         * Get the value of errores
+         */ 
+        public function getErrores()
+        {
+                return $this->errores;
+        }
+
+        /**
+         * Set the value of errores
+         *
+         * @return  self
+         */ 
+        public function setErrores($errores)
+        {
+                $this->errores = $errores;
+
+                return $this;
         }
     }
     

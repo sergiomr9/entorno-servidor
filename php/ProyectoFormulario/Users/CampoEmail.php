@@ -7,7 +7,7 @@
         {
             parent::validarCampos();
             if (!preg_match($this->regex,$this->name)) {
-               // parent::$errores[$this->name;] = "El email no es válido";
+               $this->errores[$this->name] = "El email no es válido";
             }
             return true;
         }

@@ -6,10 +6,8 @@
         public function validarCampos():bool
         {
             parent::validarCampos();
-            $fullRegex = $this->regex;
-            if (!preg_match($fullRegex, $this->contraseña)) {
-            /* parent::$errores[$this->contraseña]= */ " La contraseña tiene que tener de " . $this->minLength . " a " . $this->maxLength . " caracteres";
-            }
+            
+            
             /*return parent::$errores[$this->contraseña];*/
             return " Introduce una contraseña";
         }

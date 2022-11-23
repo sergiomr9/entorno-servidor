@@ -7,6 +7,7 @@
         public function validarCampos():bool
         {
             if (parent::validarCampos()) {
+                $this->setValue($_POST[$this->name]);
                 return true;
             }
             else {
